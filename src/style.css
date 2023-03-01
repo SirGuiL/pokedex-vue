@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background: #EFEFBB;
+	background: linear-gradient(to right, rgb(197, 230, 236), rgb(239, 187, 230));
+	color: white;
+	margin: 0;
+	font-family: rubik;
+}
+h1 {
+	text-align: center;
+	font-size: 54px;
+}
+
+@layer components {
+  .pokedex {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding-inline-start: 0;
+
+    @apply grid gap-5
+  }
+  .card {
+    border-radius: 20px;
+
+    @apply p-10 text-card-text text-center relative
+  }
+
+  .card:hover {
+    animation: bounce 0.5s linear;
+  }
+  .card-text {
+    font-size: 32px;
+    z-index: 2;
+
+    @apply capitalize mb-0 font-normal relative
+  }
+  .card-subtitle {
+    color: #666;
+    z-index: 2;
+
+    @apply mt-1 font-light relative
+  }
+  .card-image {
+    z-index: 2;
+    left: 20%;
+
+    @apply h-44 relative
+  }
+  
+  @keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+  }
+}
